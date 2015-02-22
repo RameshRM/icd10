@@ -7,21 +7,27 @@ events = new events();
 var first;
 
 function buildIndex(id, data) {
+    var debug;
     data.keywords.forEach(function(keyword, idx, list) {
+        if(keyword === 'paratyphoid'){
+            console.log(list);
+            debug=true;
+        };
+        text2key.build(keyword, id, debug);
+        // var before = list.filter(function(el, elIdx) {
+        //     return idx > elIdx && !commonwords.iscommon(el);
+        // });
+        // var after = list.filter(function(el, elIdx) {
+        //     return elIdx > elIdx && !commonwords.iscommon(el);
+        // });
+        // if (before.length || after.length) {
+        //     text2neighbour.build(keyword, {
+        //         'before': before,
+        //         'after': after
+        //     });
+        // }
 
-        text2key.build(keyword, id);
-        var before = list.filter(function(el, elIdx) {
-            return idx > elIdx && !commonwords.iscommon(el);
-        });
-        var after = list.filter(function(el, elIdx) {
-            return elIdx > elIdx && !commonwords.iscommon(el);
-        });
-        if (before.length || after.length) {
-            text2neighbour.build(keyword, {
-                'before': before,
-                'after': after
-            });
-        }
+            text2neighbour.build(keyword, list.join(' ').replace(/keyword/gi,''));
 
     });
     if (!first) {
