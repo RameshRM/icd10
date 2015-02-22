@@ -8,6 +8,8 @@ var searchIndex = require('./search/text2key-index');
 var neighbour = require('./search/text2neighbour');
 
 function processLines(lines) {
+    console.log('Start: ', new Date());
+    var cnt = 1;
     lines.forEach(function(line) {
         if (line) {
             icd = require('./icd').icd();
@@ -26,6 +28,7 @@ function processLines(lines) {
             icd.save();
         }
     });
+    console.log('End:', new Date());
 
     icdModel.all(function(err, result) {
         var outputpath = path.join(__dirname, '../resources/icd-codes.json');
