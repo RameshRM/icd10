@@ -7,7 +7,7 @@ module.exports = {
             if (!textToKeyIndex[key]) {
                 textToKeyIndex[key] = [];
             }
-            textToKeyIndex[key] = [];
+            // textToKeyIndex[key] = [];
             textToKeyIndex[key].push(value);
         }
     },
