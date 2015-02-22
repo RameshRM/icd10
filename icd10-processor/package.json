@@ -1,0 +1,11 @@
+{
+  "name": "icd10-processor",
+  "version": "1.0.0",
+  "description": "process icd10 codes",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "RameshRM <rmrmail@gmail.com>",
+  "license": "ISC"
+}
