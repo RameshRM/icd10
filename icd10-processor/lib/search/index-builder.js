@@ -8,14 +8,15 @@ function buildIndex(id, data) {
         if (keyword.length <= 2 || !isNaN(keyword)) {
             return;
         }
-        text2key.build(keyword, id);
-        var before = list.slice(0, idx).join(' ');
-        var after = list.slice(idx + 1).join(' ');
+        text2key.build(keyword.replace(/[^\w\s]/gi, '').toLowerCase(), id);
+        // var before = list.slice(0, idx).join(' ');
+        // var after = list.slice(idx + 1).join(' ');
 
-        text2neighbour.build(keyword, {
-            'before': before,
-            'after': after
-        });
+        // text2neighbour.build(keyword.replace(/[^\w\s]/gi, ''), {
+        //     'before': before,
+        //     'after': after,
+        //     'id': id
+        // });
 
     });
 }

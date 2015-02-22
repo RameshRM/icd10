@@ -4,6 +4,11 @@ var processor = require('./processor');
 
 console.log('Read', processor);
 
-if(fs.existsSync(icdCodesFile)){
+if (fs.existsSync(icdCodesFile)) {
     processor.process(icdCodesFile);
+}
+
+
+module.exports = function() {
+    console.log('Hello');
 }

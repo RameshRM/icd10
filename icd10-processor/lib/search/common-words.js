@@ -17,8 +17,8 @@ var commonwords = {
     'because': 'because',
     'he': 'he',
     'she': 'she',
-    'it': 'it',
-    'unspecified':'unspecified'
+    'it': 'it'
+
 };
 
 module.exports = {

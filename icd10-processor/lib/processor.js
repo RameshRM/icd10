@@ -8,7 +8,6 @@ var searchIndex = require('./search/text2key-index');
 var neighbour = require('./search/text2neighbour');
 
 function processLines(lines) {
-    console.log('Start: ', new Date());
     var cnt = 1;
     lines.forEach(function(line) {
         if (line) {
@@ -28,8 +27,6 @@ function processLines(lines) {
             icd.save();
         }
     });
-    console.log('End:', new Date());
-
     icdModel.all(function(err, result) {
         var outputpath = path.join(__dirname, '../resources/icd-codes.json');
         fs.writeFile(outputpath, JSON.stringify(result), function(err, result) {
@@ -54,18 +51,17 @@ function processLines(lines) {
         });
     });
 
-    neighbour.all(function(err, result) {
-        var outputpath = path.join(__dirname, '../resources/icd-neighbours.json');
-        fs.writeFile(outputpath, JSON.stringify(result), function(err, result) {
-            if (err) {
-                console.error('unable to save');
-            } else {
-                console.info('Download file to location:', outputpath);
-            }
+    // neighbour.all(function(err, result) {
+    //     var outputpath = path.join(__dirname, '../resources/icd-neighbours.json');
+    //     fs.writeFile(outputpath, JSON.stringify(result), function(err, result) {
+    //         if (err) {
+    //             console.error('unable to save');
+    //         } else {
+    //             console.info('Download file to location:', outputpath);
+    //         }
 
-        });
-    });
-
+    //     });
+    // });
 }
 
 function getIcdAttrPerLine(line, pos) {
